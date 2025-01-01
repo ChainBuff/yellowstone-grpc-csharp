@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option csharp_namespace = "GrpcGeyser";
+
 import "google/protobuf/timestamp.proto";
 import public "solana-storage.proto";
 

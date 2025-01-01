@@ -15,7 +15,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <Protobuf Include="../proto/geyser.proto" GrpcServices="Geyser" />
+    <Protobuf Include="../proto/geyser.proto" GrpcServices="Client" />
     <Protobuf Include="../proto/solana-storage.proto" GrpcServices="Solana" />
   </ItemGroup>
 
