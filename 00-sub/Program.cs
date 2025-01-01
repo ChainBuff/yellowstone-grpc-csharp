@@ -20,14 +20,8 @@ var pingRequest = new SubscribeRequest
 
 using var stream = client.Subscribe();
 
-await stream.RequestStream.WriteAsync(request);
 var cancellationToken = new CancellationToken();
-Timer timer = new(async (state) =>
-{
-    await stream.RequestStream.WriteAsync(pingRequest);
-    ;
-}, null, 1000, 5000);
-
+await stream.RequestStream.WriteAsync(request);
 Task responseTask = Task.Run(async () =>
 {
     while (await stream.ResponseStream.MoveNext(cancellationToken))
@@ -36,6 +30,12 @@ Task responseTask = Task.Run(async () =>
         Console.WriteLine(message.ToString());
     }
 });
+
+Timer timer = new(async (state) =>
+{
+    await stream.RequestStream.WriteAsync(pingRequest);
+    ;
+}, null, 1000, 5000);
 
 // 等待响应流处理完成或用户按键退出
 await Task.WhenAny(responseTask, Task.Run(() => Console.ReadKey()));
