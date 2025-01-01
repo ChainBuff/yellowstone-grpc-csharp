@@ -11,24 +11,14 @@ var request = new SubscribeRequest
 request.Slots.Add("slot", new SubscribeRequestFilterSlots { FilterByCommitment = true });
 
 using var stream = client.Subscribe();
-await stream.RequestStream.WriteAsync(request);
 
-// move to the next message within the reply stream
+await stream.RequestStream.WriteAsync(request);
 var cancellationToken = new CancellationToken();
 
 
 while (await stream.ResponseStream.MoveNext(cancellationToken))
 {
-    // get the current message within reply stream
     var message = stream.ResponseStream.Current;
-
-    // print the current message
-
-    if (message.Ping != null)
-    {
-
-    }
-
     Console.WriteLine(message.ToString());
 }
 
