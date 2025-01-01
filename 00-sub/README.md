@@ -1,6 +1,7 @@
 # 创建订阅
 
 本部分将介绍创建grpc订阅的通用流程。若要更改订阅的数据，只需要修改订阅请求即可。
+
 VS Code 环境及插件部分请参考： https://learn.microsoft.com/zh-cn/aspnet/core/grpc/basics?view=aspnetcore-9.0
 
 ## 创建订阅客户端和数据流
