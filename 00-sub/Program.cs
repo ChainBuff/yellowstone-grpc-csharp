@@ -1,20 +1,31 @@
 ﻿using Grpc.Net.Client;
 using GrpcGeyser;
+using Microsoft.Extensions.Configuration;
 
-using var channel = GrpcChannel.ForAddress("https://solana-yellowstone-grpc.publicnode.com:443");
+// Load configuration
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json")
+    .Build();
+
+var endpoint = configuration["GrpcService:Endpoint"];
+var commitment = configuration["GrpcService:Commitment"];
+var pingIntervalMs = int.Parse(configuration["Subscription:PingIntervalMs"] ?? "5000");
+var pingId = int.Parse(configuration["Subscription:PingId"] ?? "1");
+
+using var channel = GrpcChannel.ForAddress(endpoint!);
 var client = new Geyser.GeyserClient(channel);
 var request = new SubscribeRequest
 {
-    Commitment = CommitmentLevel.Processed
+    Commitment = Enum.Parse<CommitmentLevel>(commitment!)
 };
 request.Slots.Add("slot", new SubscribeRequestFilterSlots { FilterByCommitment = true });
-
 
 var pingRequest = new SubscribeRequest
 {
     Ping = new SubscribeRequestPing
     {
-        Id = 1
+        Id = pingId
     }
 };
 
@@ -34,8 +45,6 @@ Task responseTask = Task.Run(async () =>
 Timer timer = new(async (state) =>
 {
     await stream.RequestStream.WriteAsync(pingRequest);
-    ;
-}, null, 1000, 5000);
+}, null, pingIntervalMs, pingIntervalMs);
 
-// 等待响应流处理完成或用户按键退出
 await Task.WhenAny(responseTask, Task.Run(() => Console.ReadKey()));
