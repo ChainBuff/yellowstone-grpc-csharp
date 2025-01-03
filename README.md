@@ -1,23 +1,90 @@
-# Yellowstone gRPC 教程
 
-Yellowstone gRPC 是获取 Solana 链上数据最快的方式。数据以流的方式推送，客户端需要配置订阅来获取和解析数据。
+# Solana Yellowstone gRPC C# 示例项目
 
-本教程旨在提供一些简单的订阅配置例子，帮助你快速熟悉此工具。
+## 项目概述
 
----
+本项目提供了使用 C# 接入 Solana Yellowstone gRPC 服务的完整示例。Yellowstone gRPC 是一个高性能的 Solana 区块链数据订阅服务，支持实时获取区块链数据，包括 Slot 更新、区块信息、账户变更等。
 
-在阅读之前，需要添加所需的 NuGet 包。
+## 环境要求
+- .NET 8.0 SDK
+- Visual Studio 2022 或 VS Code
+- Git
+
+## 快速开始
+
+### 1. 克隆项目
 
 ```bash
-Install-Package Grpc.Net.Client
-
-Install-Package Google.Protobuf
-
-Install-Package Grpc.Tools
+git clone https://github.com/ChainBuff/yellowstone-grpc-csharp.git
+cd yellowstone-grpc-csharp
 ```
 
-## 目录
+### 2. 安装依赖包
 
-### 基础
+```bash
+dotnet restore
+```
 
-0. [创建订阅](./00-sub/)
+## 项目结构
+
+本项目包含两个示例程序：
+
+### 00-sub - [基础订阅示例](./00-sub/)
+- Slot 数据订阅的基础实现
+- 演示如何建立 gRPC 连接
+- 展示最简单的数据订阅配置
+- 查看详细说明
+
+### 01-format - [区块数据订阅示例](./01-format/)
+- 完整的区块数据订阅实现
+- 支持账户交易监控
+- 包含详细的数据解析示例
+- 查看详细说明
+
+## 关键特性
+
+- 使用配置文件管理连接参数
+- 支持多种订阅过滤器
+- 实时数据推送
+- 心跳保活机制
+- 异步处理
+
+## 配置说明
+
+每个示例项目都包含独立的 `appsettings.json` 配置文件：
+
+```json
+{
+  "GrpcService": {
+    "Endpoint": "https://solana-yellowstone-grpc.publicnode.com:443",
+    "Commitment": "Processed"
+  }
+}
+```
+
+## 常见问题
+
+1. gRPC 连接问题
+   - 确保防火墙允许对应端口
+   - 验证 Endpoint 地址正确
+   - 检查网络连接状态
+
+2. 数据订阅问题
+   - 确认 Commitment 级别设置
+   - 检查过滤器配置
+   - 验证账户地址格式
+
+## 贡献指南
+
+欢迎提交 Issue 和 Pull Request 来完善项目。在提交代码前请确保：
+
+1. 遵循现有代码风格
+2. 添加适当的注释
+3. 更新相关文档
+
+## 参考资源
+
+- [Solana 开发文档](https://docs.solana.com/)
+- [Yellowstone-grpc 文档](https://docs.helius.dev/yellowstone-grpc/getting-started)
+- [gRPC 官方文档](https://grpc.io/docs/)
+
