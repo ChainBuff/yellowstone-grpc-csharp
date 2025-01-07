@@ -25,7 +25,7 @@ request.Transactions.Add("txn", new SubscribeRequestFilterTransactions
 {
     Vote = false,
     Failed = false,
-    AccountInclude = { accountToTrack, "Ejb8ntBPgNYnMaHBpSJL2PgsaLyQWkVZTqakYs3dteWe" },
+    AccountInclude = { accountToTrack },
     AccountExclude = { },
     AccountRequired = { }
 });
