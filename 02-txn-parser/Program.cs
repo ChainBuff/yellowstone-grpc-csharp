@@ -55,7 +55,7 @@ Task responseTask = Task.Run(async () =>
 
             // 交易涉及的账户
             var accountKeys = data.Transaction.Transaction.Transaction.Message.AccountKeys.Select(k => Base58.Encode(k.ToByteArray()));
-            Console.WriteLine("交易涉及的账户：{0}", accountKeys.ToArray());
+            Console.WriteLine("交易涉及的账户：{0}", string.Join(", ", accountKeys));
 
             // 交易指令
             var instructions = data.Transaction.Transaction.Transaction.Message.Instructions;
