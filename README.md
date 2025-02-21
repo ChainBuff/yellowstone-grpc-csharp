@@ -41,6 +41,16 @@ dotnet restore
 - 包含详细的数据解析示例
 - [查看详细说明](./01-format/)
 
+
+### 02-txn-parser - 解析交易
+- 数据解析示例
+- [查看详细说明](./02-txn-parser/)
+
+### 03-snipe-pump -阻击pump新代币
+- 使用GPRC订阅PUMP新代币
+![本地路径](./png/01.png)
+- [查看详细说明](./03-snipe-pump/)
+
 ## 关键特性
 
 - 使用配置文件管理连接参数
