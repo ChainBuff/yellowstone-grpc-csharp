@@ -132,8 +132,8 @@ message Reward {
 }
 
 message Rewards {
-  repeated Reward rewards = 1;
-  NumPartitions num_partitions = 2;
+    repeated Reward rewards = 1;
+    NumPartitions num_partitions = 2;
 }
 
 message UnixTimestamp {
