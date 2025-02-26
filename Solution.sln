@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-txn-parser", "02-txn-par
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-snipe-pump", "03-snipe-pump\03-snipe-pump.csproj", "{DBF0616D-850E-4E33-9898-31549BEF575B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-GRpcApp", "04-GRpcApp\04-GRpcApp.csproj", "{6D22D7F8-2D87-4314-AA34-48077E57A074}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{DBF0616D-850E-4E33-9898-31549BEF575B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBF0616D-850E-4E33-9898-31549BEF575B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBF0616D-850E-4E33-9898-31549BEF575B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D22D7F8-2D87-4314-AA34-48077E57A074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D22D7F8-2D87-4314-AA34-48077E57A074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D22D7F8-2D87-4314-AA34-48077E57A074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D22D7F8-2D87-4314-AA34-48077E57A074}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

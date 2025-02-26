@@ -51,6 +51,14 @@ dotnet restore
 ![本地路径](./png/01.png)
 - [查看详细说明](./03-snipe-pump/)
 
+### 04-GRpcApp - 综合项目
+- gRpc 节点延时
+- 订阅pump内盘价格
+- 订阅raydium 外盘价格
+- 订阅raydium 池子
+![本地路径](./png/02.png)
+- [查看详细说明](./04-GRpcApp/)
+
 ## 关键特性
 
 - 使用配置文件管理连接参数
